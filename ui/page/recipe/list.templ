@@ -1,0 +1,25 @@
+package recipe
+
+import "github.com/alisdairrankine/cookbook"
+
+templ RecipeList(recipies []cookbook.Recipe) {
+	<table>
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Serving Size</th>
+		</tr>
+		</thead>
+		<tbody>
+		for _,recipe := range recipies{
+			@RecipeListItem(recipe)
+		}
+		</tbody>
+	</table>
+}
+
+templ RecipeListItem(r cookbook.Recipe) {
+	<tr>
+	<td></td>
+	</tr>
+}
