@@ -7,18 +7,18 @@ import (
 )
 
 type Recipe struct {
-	ID     uuid.UUID
-	Name   string
-	Serves uint8
+	ID     uuid.UUID `json:"id,omitempty"`
+	Name   string    `json:"name,omitempty"`
+	Serves uint8     `json:"serves,omitempty"`
 
-	Ingredients []Ingredient
-	Steps       []CookingStep
+	Ingredients []Ingredient  `json:"ingredients,omitempty"`
+	Steps       []CookingStep `json:"steps,omitempty"`
 }
 
 type CookingStep struct {
-	Description       string
-	RequiredEquipment []Equipment
-	Duration          time.Duration
+	Description       string        `json:"description,omitempty"`
+	RequiredEquipment []Equipment   `json:"required_equipment,omitempty"`
+	Duration          time.Duration `json:"duration,omitempty"`
 }
 
 type Unit string
@@ -29,9 +29,9 @@ const (
 )
 
 type Ingredient struct {
-	Amount float32
-	Unit   Unit
-	Name   string
+	Amount float32 `json:"amount,omitempty"`
+	Unit   Unit    `json:"unit,omitempty"`
+	Name   string  `json:"name,omitempty"`
 }
 
 type Equipment string

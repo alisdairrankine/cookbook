@@ -1,25 +1,29 @@
 package recipe
 
-import "github.com/alisdairrankine/cookbook"
+import (
+	"fmt"
+	"github.com/alisdairrankine/cookbook"
+)
 
 templ RecipeList(recipies []cookbook.Recipe) {
 	<table>
 		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Serving Size</th>
-		</tr>
+			<tr>
+				<th>Name</th>
+				<th>Serving Size</th>
+			</tr>
 		</thead>
 		<tbody>
-		for _,recipe := range recipies{
-			@RecipeListItem(recipe)
-		}
+			for _,recipe := range recipies {
+				@RecipeListItem(recipe)
+			}
 		</tbody>
 	</table>
 }
 
 templ RecipeListItem(r cookbook.Recipe) {
 	<tr>
-	<td></td>
+		<td>{ r.Name }</td>
+		<td>{ fmt.Sprintf("%d",r.Serves) }</td>
 	</tr>
 }
